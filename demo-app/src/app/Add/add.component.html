@@ -1,0 +1,72 @@
+<style>
+    .top-margin {
+        margin-top: 100px;
+    }
+
+    .dark {
+        background: black;
+        color: whitesmoke;
+    }
+
+    .updatebutton {
+        border: none;
+        background-color: white;
+    }
+
+    .updatebutton:hover {
+        background-color: grey;
+    }
+</style>
+
+<div class="container">
+    <form>
+        <table class="top-margin table">
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" name="Name" (input)="feature.Name=$event.target.value" placeholder="Name">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Manufacturer:</td>
+                <td>
+                    <input type="text" name="Manufacturer" (input)="feature.Manufacturer=$event.target.value" placeholder="Manufacturer">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Batch Number:</td>
+                <td>
+                    <input type="text" name="Batch_No" (input)="feature.Batch_No=$event.target.value" placeholder="Batch Number">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Expiration Date:</td>
+                <td>
+                    <input type="string" name="Expiration_Date" (input)="feature.Expiration_Date=$event.target.value" placeholder="Date(DD/MM/YYYY)">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>
+                    <input type="number" name="Price" (input)="feature.Price=$event.target.value" placeholder="Price">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <input type="text" name="Type" (input)="feature.Type=$event.target.value" placeholder="Type">
+                    <br/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="float:right">
+        <input type="button" value="Close" (click)="OnClose()">
+        <input type="button" value="Update" (click)="OnAddition(feature)">
+    </div>
+</div>

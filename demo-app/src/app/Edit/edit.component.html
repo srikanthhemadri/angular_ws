@@ -1,0 +1,79 @@
+<style>
+    .top-margin {
+        margin-top: 100px;
+    }
+
+    .dark {
+        background: black;
+        color: whitesmoke;
+    }
+
+    .updatebutton {
+        border: none;
+        background-color: white;
+    }
+
+    .updatebutton:hover {
+        background-color: grey;
+    }
+</style>
+
+<div class="container">
+    <form>
+        <table class="top-margin table">
+            <tr>
+                <td>ID:</td>
+                <td>
+                    <input type="text" name="id" value="{{feature.id}}" disabled=true>
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" name="Name" [(ngModel)]="feature.Name" placeholder="Name">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Manufacturer:</td>
+                <td>
+                    <input type="text" name="Manufacturer" [(ngModel)]="feature.Manufacturer" placeholder="Manufacturer">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Batch Number:</td>
+                <td>
+                    <input type="text" name="Batch_No" [(ngModel)]="feature.Batch_No" placeholder="Batch Number">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Expiration Date:</td>
+                <td>
+                    <input type="string" name="Expiration_Date" [(ngModel)]="feature.Expiration_Date" placeholder="Date(DD/MM/YYYY)">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>
+                    <input type="number" name="Price" [(ngModel)]="feature.Price" placeholder="Price">
+                    <br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <input type="text" name="Type" [(ngModel)]="feature.Type" placeholder="Type">
+                    <br/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="float:right">
+        <input type="button" value="Close" (click)="OnClose()">
+        <input type="button" value="Update" (click)="OnUpdate(feature)">
+    </div>
+</div>

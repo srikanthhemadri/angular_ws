@@ -1,0 +1,13 @@
+<div class="window-background" [hidden]="!dialogdetails.show">
+    <div class="window-float">
+        <div class="window-header">
+            <h5>{{dialogdetails.title}}</h5>
+        </div>
+        <div class="window-body">
+            <p>{{dialogdetails.body}}</p>
+        </div>
+        <div class="window-footer">
+            <p><input type="button" value="Close" (click)="OnCloseClick()"></p>
+        </div>
+    </div>
+</div>

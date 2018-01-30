@@ -1,0 +1,76 @@
+<style>
+    .top-margin {
+        margin-top: 100px;
+    }
+
+    .dark {
+        background: black;
+        color: whitesmoke;
+    }
+
+    .updatebutton {
+        border: none;
+        background-color: white;
+    }
+
+    .updatebutton:hover {
+        background-color: grey;
+    }
+
+    .settingsbutton {
+        background-color: black;
+        border: none
+    }
+</style>
+
+<div class="container">
+    <table class="top-margin table-hover table">
+        <thead class="dark">
+            <tr>
+                <ng-container *ngFor="let item of displaydetails">
+                    <td *ngIf="item.display">{{item.alias}}</td>
+                </ng-container>
+                <td>
+                    <button (click)="ToggleSettings()" class="settingsbutton">
+                        <img id="settings" height="18" width="18" src="http://flaticons.net/icons/Mobile%20Application/Settings-02.png" />
+                    </button>
+                </td>
+                <td>
+                    <button (click)="OnDelete()" class="settingsbutton">
+                        <img id="settings" height="18" width="18" src="http://flaticons.net/gd/makefg.php?i=icons/Application/Garbage-Closed.png&r=255&g=255&b=255" />
+                    </button>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let feature of medsdata.data | viewFilter: searchtext">
+                <ng-container *ngFor="let item of displaydetails">
+                    <td *ngIf="item.display">{{feature[item.field]}}</td>
+                </ng-container>
+                <td>
+                    <button (click)="Update(feature)" class="updatebutton">
+                        <img id="entryupd" height="18" width="18" src="https://cdn3.iconfinder.com/data/icons/simple-files-1/128/Update-128.png"
+                        />
+                    </button>
+                </td>
+                <td>
+                    <input type="checkbox" (click)="GetDeletes(feature, $event)" name="{{feature.Name}}" value="{{feature.id}}">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="fieldswindow" class="window-background" [hidden]="!settings">
+    <div class="window-float">
+        <div class="window-body">
+            <tr *ngFor="let item of displaydetails">
+                <td>
+                    <input type="checkbox" [checked]="item.display" (click)="ChangeFields(item)" name="{{item.field}}" value="{{item.field}}">{{item.alias}}
+                </td>
+            </tr>
+        </div>
+        <div class="window-footer">
+            <input type="button" value="Close" (click)="ToggleSettings()">
+        </div>
+    </div>
+</div>
